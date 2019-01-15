@@ -5,10 +5,11 @@ export const GetMessages = gql`
   query GetMessages($tab: String!) {
     messages(tab: $tab) {
       id
-      ...SomeRandomNonExistingFragment
     }
   }
 `;
+
+const func;();
 
 // tslint:disable-next-line:variable-name
 export const CreateMessage = gql`
