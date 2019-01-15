@@ -5,6 +5,7 @@ export const GetMessages = gql`
   query GetMessages($tab: String!) {
     messages(tab: $tab) {
       id
+      ...SomeRandomNonExistingFragment
     }
   }
 `;
