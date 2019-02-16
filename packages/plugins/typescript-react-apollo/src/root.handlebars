@@ -31,7 +31,14 @@ export namespace {{convert name 'typeNames' }} {
     }
 
     {{#unless @root.config.noHooks}}
-    export const {{#if @root.config.noNamespaces}}{{ toLowerCase (convert name 'typeNames') }}{{/if}}Hook = (options?: ReactHooks.{{ convert operationType 'typeNames' }}HookOptions<{{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}{{convert operationType 'typeNames' }}, {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Variables>) => ReactHooks.use{{ convert operationType 'typeNames' }}<{{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}{{convert operationType 'typeNames' }}, {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Variables>({{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Document, options)
+    {{#ifCond operationType '===' 'mutation'}}
+    export type {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}HookOptions = ReactHooks.MutationHookOptions<{{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}{{convert operationType 'typeNames' }}, {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Variables>;
+    {{else}}
+    export type {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}HookOptions = ReactHooks.QueryHookOptions<{{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Variables>;
+
+    {{/ifCond}}
+
+    export const {{#if @root.config.noNamespaces}}{{ toLowerCase (convert name 'typeNames') }}{{/if}}Hook = (options?: {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}HookOptions) => ReactHooks.use{{ convert operationType 'typeNames' }}<{{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}{{convert operationType 'typeNames' }}, {{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Variables>({{#if @root.config.noNamespaces}}{{ convert name 'typeNames' }}{{/if}}Document, options)
     {{/unless}}
 
     {{#unless @root.config.noHOC}}
