@@ -116,3 +116,5 @@ export const toFragmentName = convert => (fragmentName: string, options: Handleb
     return convert(fragmentName, 'typeNames') + '.FragmentDoc';
   }
 };
+
+export const lowercaseFirstLetter = (str: string): string => str.charAt(0).toLowerCase() + str.slice(1);
