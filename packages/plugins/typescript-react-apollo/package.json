@@ -1,6 +1,6 @@
 {
-  "name": "graphql-codegen-typescript-react-apollo",
-  "version": "0.16.1",
+  "name": "graphql-codegen-typescript-react-apollo-with-hooks",
+  "version": "0.16.4",
   "description": "graphql-codegen-cli template for TypeScript typings for both client side and server side",
   "repository": "git@github.com:dotansimha/graphql-code-generator.git",
   "license": "MIT",
